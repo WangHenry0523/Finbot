@@ -1,0 +1,6 @@
+.env
+output
+postgreSQL
+companyname.json
+*.csv
+*.xlsx
