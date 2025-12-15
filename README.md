@@ -1,0 +1,4 @@
+# Finbot
+## 專案說明
+原本只是想要利用excel紀錄自己的股票收益而已，但後來想到說是不是可以直接程式幫忙紀錄到excel裡面就做了這個。然後因為沒有碰過大語言模型串接跟Docker，所以決定在這個主題上增加這兩個部分。總體而言，這個專案是由python程式(transactionrecord.py)
+紀錄你的股票收益跟庫存，然後company.ipynb這個程式會根據你購買股票的公司幫你從FinMind上抓取對應的財報資料並利用PostreSQL存入資料庫中，最後利用langchain架構串接LLM模型製作一個AI agent去幫你分析財報
