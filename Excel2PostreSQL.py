@@ -1,14 +1,11 @@
 import pandas as pd
 from sqlalchemy import create_engine
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
+db_url = os.getenv("database_url")
 # === 1. PostgreSQL 連線資訊 ===
-user = "postgres"
-password = "eee333"
-host = "localhost"
-port = "5432"
-dbname = "stock_finance_data"
-
-engine = create_engine(f"postgresql://{user}:{password}@{host}:{port}/{dbname}")
+engine = create_engine(db_url)
 
 # === 2. 讀取 Excel 所有 Sheets ===
 excel_path = "output\\financial_report.xlsx"

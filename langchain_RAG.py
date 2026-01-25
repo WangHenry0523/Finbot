@@ -13,8 +13,6 @@ llm = ChatOllama(model="llama3.1:8b", temperature=0)
 
 # Step 2: 連接 PostgreSQL
 # 格式: postgresql+psycopg2://username:password@host:port/database
-# **重要：請確保您的 PostgreSQL 服務正在運行**
-#db_uri = os.environ.get("database_url")
 db_url = os.getenv("database_url")
 
 try:
