@@ -4,3 +4,4 @@ postgreSQL
 companyname.json
 *.csv
 *.xlsx
+test.py

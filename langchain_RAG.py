@@ -2,6 +2,10 @@ from langchain_community.agent_toolkits.sql.base import create_sql_agent
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_ollama import ChatOllama
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Step 1: 設定 LLM
 # 確保 Ollama 服務和 llama3.1:8b 模型正在運行
@@ -10,9 +14,11 @@ llm = ChatOllama(model="llama3.1:8b", temperature=0)
 # Step 2: 連接 PostgreSQL
 # 格式: postgresql+psycopg2://username:password@host:port/database
 # **重要：請確保您的 PostgreSQL 服務正在運行**
-db_uri = "database_url"  
+#db_uri = os.environ.get("database_url")
+db_url = os.getenv("database_url")
+
 try:
-    db = SQLDatabase.from_uri(db_uri)
+    db = SQLDatabase.from_uri(db_url,include_tables=['financial_quarterly'])
 except Exception as e:
     print(f"Error connecting to database: {e}")
     print("Please check if your PostgreSQL service is running and URI is correct.")
@@ -26,6 +32,7 @@ toolkit = SQLDatabaseToolkit(db=db, llm=llm)
 agent_executor = create_sql_agent(
     llm=llm,
     toolkit=toolkit,
+    agent_type="zero-shot-react-description",
     verbose=True,  # 開啟詳細模式，觀察 LLM 的思考和 SQL 語句
     handle_parsing_errors=True
 )
