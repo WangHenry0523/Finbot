@@ -1,7 +1,8 @@
 from langchain_community.agent_toolkits.sql.base import create_sql_agent
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from langchain_community.utilities.sql_database import SQLDatabase
-from langchain_ollama import ChatOllama
+#from langchain_ollama import ChatOllama
+from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 from dotenv import load_dotenv
 
@@ -9,7 +10,10 @@ load_dotenv()
 
 # Step 1: 設定 LLM
 # 確保 Ollama 服務和 llama3.1:8b 模型正在運行
-llm = ChatOllama(model="llama3.1:8b", temperature=0)
+#llm = ChatOllama(model="llama3.1:8b", temperature=0)
+google_api_key=os.getenv("gemini_api_key")
+llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0,
+                             google_api_key=google_api_key) 
 
 # Step 2: 連接 PostgreSQL
 # 格式: postgresql+psycopg2://username:password@host:port/database
@@ -30,7 +34,7 @@ toolkit = SQLDatabaseToolkit(db=db, llm=llm)
 agent_executor = create_sql_agent(
     llm=llm,
     toolkit=toolkit,
-    agent_type="zero-shot-react-description",
+    agent_type="openai-tools",
     verbose=True,  # 開啟詳細模式，觀察 LLM 的思考和 SQL 語句
     handle_parsing_errors=True
 )
