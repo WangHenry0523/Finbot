@@ -18,6 +18,7 @@ transaction_record.py負責記錄購買的股票，只要在Terminal輸入你購
 * net_margin: "淨利率(%)"
 並生成對應報表financial_report.xlsx
 <img width="828" height="699" alt="image" src="https://github.com/user-attachments/assets/cb9cc68b-1112-4fc1-9058-67680bdd4d80" />
+
 ## 轉為postgresql
 讀取financial_report.xlsx，並寫入PostgreSQL。
 ## 串接Langchain
