@@ -3,19 +3,21 @@ import os
 from tabulate import tabulate
 import json
 from datetime import datetime
+
 FILENAME = "portfolio.csv"
 COMPANY_FILE = "companyname.json"
 TRANSACTION_FILE = "transactions.csv"
 
 
-# 初始化檔案
 def init_file():
+    """確認必要的 CSV 檔案是否存在，若不存在則建立並寫入標頭 (Header)"""
+    # 初始化庫存檔案
     if not os.path.exists(FILENAME):
         with open(FILENAME, mode="w", newline="", encoding="utf-8-sig") as f:
             writer = csv.writer(f)
             writer.writerow([
             "stock", "company", "quantity", "avg_price"])
-    
+    # 初始化交易紀錄檔案
     if not os.path.exists(TRANSACTION_FILE):
         with open(TRANSACTION_FILE, mode="w", newline="", encoding="utf-8-sig") as f:
             writer = csv.writer(f)
