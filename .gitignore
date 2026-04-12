@@ -5,3 +5,4 @@ companyname.json
 *.csv
 *.xlsx
 test.py
+.vscode

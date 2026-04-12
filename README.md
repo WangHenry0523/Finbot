@@ -67,8 +67,7 @@
 Finbot/
 ├── transaction_record.py     # 股票交易記錄主程式
 ├── company_finance.ipynb             # FinMind 財報抓取與處理
-├── langcjain_RAG.py                   # LangChain SQL Agent 查詢
-├── .env                      # 環境變數（不納入版控）
+├── langchain_RAG.py                   # LangChain SQL Agent 查詢
 ├── .env.example              # 環境變數範本
 ├── data/
 │   ├── transactions.csv      # 交易紀錄
@@ -117,7 +116,6 @@ cp .env.example .env
 GEMINI_API_KEY=your_gemini_api_key
 DATABASE_URL=postgresql+psycopg2://username:password@localhost:5432/finbot
 FINMIND_TOKEN=your_finmind_token
-VERBOSE=false
 ```
 
 ### 4. 初始化資料庫
