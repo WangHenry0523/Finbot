@@ -1,0 +1,20 @@
+# Core Data Processing
+pandas
+numpy
+tabulate
+
+# LangChain Ecosystem
+langchain
+langchain-community
+langchain-google-genai
+
+# Database & SQL
+SQLAlchemy
+psycopg2-binary  # 如果你使用的是 PostgreSQL，建議加上這個驅動
+
+# Financial Data API
+FinMind
+
+# Utilities
+python-dotenv
+tenacity

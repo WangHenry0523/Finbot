@@ -1,10 +1,10 @@
-# 🤖 Finbot — AI 驅動的股票財報分析工具
+#  Finbot — AI 驅動的股票財報分析工具
 
 > 結合 FinMind API、PostgreSQL、LangChain 與 Gemini LLM，自動化記錄股票庫存並以 AI Agent 分析財報數據。
 
 ---
 
-## 📋 目錄
+##  目錄
 
 - [專案說明](#專案說明)
 - [功能架構](#功能架構)
@@ -202,7 +202,7 @@ The revenue for stock_id '2330' in year 2024 quarter 3 is 759,692,143,000.
 
 ---
 
-## ⚠️ 注意事項
+##  注意事項
 
 - `.env` 檔案含有 API 金鑰，請勿上傳至 GitHub，確認已加入 `.gitignore`
 - FinMind 免費方案有每日 API 呼叫上限，大量抓取請注意配額
